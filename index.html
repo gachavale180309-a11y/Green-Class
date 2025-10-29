@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>El Malasaña en la Estratosfera. Globo Sonda 2025</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #222">
+      <a-assets>
+        <a-asset-item id="museo" src="museo.glb"></a-asset-item>
+        
+        <a-asset-item id="pulgonautas" src="pulgonautas.glb"></a-asset-item>
+        
+        <video id="lanzamiento" src="lanzamiento.mp4" autoplay loop crossorigin="anonymous"></video>
+
+      </a-assets>
+
+      <!-- Museo correctamente escalado y ubicado -->
+      <a-entity gltf-model="#museo" scale="100 100 100" position="0 0 0"></a-entity>
+
+      <!-- Cámara dentro del museo -->
+      <a-entity position="0 0.15 0">
+        <a-camera wasd-controls look-controls>
+          <a-cursor></a-cursor>
+        </a-camera>
+      </a-entity>
+
+      <!-- Vídeos colocados dentro del museo -->
+      
+      <a-video src="#lanzamiento" position="3.65 2.15 -2.20" width="2" height="1"rotation="0 90 0"></a-video>
+      
+
+      <!-- Modelo 3D colocado dentro del museo -->
+      
+      <a-entity gltf-model="#pulgonautas" scale="0.25 0.25 0.25" position="-3.2 1.7 2.75" rotation="90 180 0"></a-entity>
+      
+
+      <!-- Luz ambiente -->
+      <a-entity light="type: ambient; intensity: 0.7"></a-entity>
+      <a-entity light="type: directional; intensity: 0.5" position="1 4 1"></a-entity>
+    </a-scene>
+  </body>
+</html>
